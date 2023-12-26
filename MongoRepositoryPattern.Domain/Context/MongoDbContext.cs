@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MongoRepositoryPattern.Domain.Context
 {
-    public class MongoDbContext
+    public class MongoDbContext:IMongoDbContext
     {
     }
 }
