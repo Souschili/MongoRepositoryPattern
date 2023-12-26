@@ -1,6 +1,3 @@
 @MongoRepositoryPattern.Api_HostAddress = http://localhost:5195
 
-GET {{MongoRepositoryPattern.Api_HostAddress}}/weatherforecast/
-Accept: application/json
 
-###
