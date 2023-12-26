@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MongoDB.Driver;
 
 namespace MongoRepositoryPattern.Domain.Context
 {
-    public class MongoDbContext:IMongoDbContext
+    public class MongoDbContext : IMongoDbContext
     {
+        public IMongoDatabase Database { get; private set; }
+
+        public MongoDbContext()
+        {
+            // empty connection string is for local mongo 
+            var client = new MongoClient();
+            this.Database = client.GetDatabase("TestRepo");
+        }
     }
 }
