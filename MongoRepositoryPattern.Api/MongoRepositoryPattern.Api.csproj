@@ -15,4 +15,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MongoRepositoryPattern.Domain\MongoRepositoryPattern.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
