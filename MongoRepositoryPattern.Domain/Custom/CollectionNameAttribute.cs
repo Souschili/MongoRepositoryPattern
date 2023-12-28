@@ -3,7 +3,7 @@
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class CollectionNameAttribute : Attribute
     {
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; private set; } = string.Empty;
 
         public CollectionNameAttribute(string name)
         {
