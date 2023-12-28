@@ -1,13 +1,19 @@
 ﻿using MongoDB.Driver;
+using MongoRepositoryPattern.Domain.Custom;
 using MongoRepositoryPattern.Domain.Repository.Interfaces;
+using System.Reflection;
 
 namespace MongoRepositoryPattern.Domain.Repository
 {
-    public class GenericRepositoryM<TEntity> : IGenericRepository<TEntity> where TEntity : class,new()
+    public class GenericRepositoryM<TEntity> : IGenericRepository<TEntity> where TEntity : class, new()
     {
         private readonly protected IMongoCollection<TEntity> _collection;
         public GenericRepositoryM(IMongoDatabase database)
         {
+            string collName = typeof(TEntity).GetCustomAttribute<CollectionNameAttribute>()!.Name;
+
+            if (String.IsNullOrEmpty(collName)) throw new ArgumentNullException($"Collection name unable to read {nameof(TEntity)}");
+
             this._collection = database.GetCollection<TEntity>(nameof(TEntity));
         }
 
