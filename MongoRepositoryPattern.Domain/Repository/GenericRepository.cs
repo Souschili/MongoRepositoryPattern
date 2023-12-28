@@ -3,6 +3,7 @@ using MongoRepositoryPattern.Domain.Custom;
 using MongoRepositoryPattern.Domain.Model.Base;
 using MongoRepositoryPattern.Domain.Repository.Interfaces;
 using System.Reflection;
+using System.Linq;
 
 namespace MongoRepositoryPattern.Domain.Repository
 {
@@ -30,19 +31,21 @@ namespace MongoRepositoryPattern.Domain.Repository
             return deleteresult.DeletedCount > 0;
         }
 
-        public virtual Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _collection.Find(_=> true).ToListAsync();
         }
 
-        public virtual Task<TEntity> GetAsync(int id)
+        public virtual async Task<TEntity> GetAsync(string id)
         {
-            throw new NotImplementedException();
+           FilterDefinition<TEntity> filter=Builders<TEntity>.Filter.Eq(x=> x.Id, id);
+           return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
-        public virtual Task<bool> UpdateAsync(TEntity entity)
+        public virtual async Task<bool> UpdateAsync(FilterDefinition<TEntity> filter, UpdateDefinition<TEntity> updateFilter)
         {
-            throw new NotImplementedException();
+            var rezult = await _collection.UpdateOneAsync(filter, updateFilter);
+            return rezult.ModifiedCount > 0;
         }
     }
 }

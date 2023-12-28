@@ -17,7 +17,7 @@ namespace MongoRepositoryPattern.Api.Controllers
         {
             var author = new Author
             {
-                Id = 1,
+                Id = "1",
                 Name = "Test",
                 Description = "Test"
             };
