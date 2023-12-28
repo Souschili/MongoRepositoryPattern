@@ -2,6 +2,7 @@
 
 namespace MongoRepositoryPattern.Domain.Context
 {
+    [Obsolete("Call direct IMongoDataBase")]
     public class MongoDbContext : IMongoDbContext
     {
         public IMongoDatabase Database { get; private set; }
