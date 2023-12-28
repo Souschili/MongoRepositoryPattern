@@ -1,6 +1,8 @@
-﻿namespace MongoRepositoryPattern.Domain.Repository.Interfaces
+﻿using MongoRepositoryPattern.Domain.Model.Base;
+
+namespace MongoRepositoryPattern.Domain.Repository.Interfaces
 {
-    public interface IGenericRepository<TEntity> where TEntity : class, new()
+    public interface IGenericRepository<TEntity> where TEntity : BaseEntity, new()
     {
         Task CreateAsync(TEntity entity);
         Task<TEntity> GetAsync(int id);

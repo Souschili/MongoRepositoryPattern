@@ -1,11 +1,12 @@
 ﻿using MongoDB.Driver;
 using MongoRepositoryPattern.Domain.Custom;
+using MongoRepositoryPattern.Domain.Model.Base;
 using MongoRepositoryPattern.Domain.Repository.Interfaces;
 using System.Reflection;
 
 namespace MongoRepositoryPattern.Domain.Repository
 {
-    public abstract class GenericRepositoryM<TEntity> : IGenericRepository<TEntity> where TEntity : class, new()
+    public abstract class GenericRepositoryM<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
     {
         private readonly protected IMongoCollection<TEntity> _collection;
         public GenericRepositoryM(IMongoDatabase database)
@@ -22,9 +23,11 @@ namespace MongoRepositoryPattern.Domain.Repository
             await _collection.InsertOneAsync(entity);
         }
 
-        public virtual Task<bool> DeleteAsync(TEntity entity)
+        public virtual async Task<bool> DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<TEntity>.Filter.Eq(x => x.Id, id);
+            var deleteresult = await _collection.DeleteOneAsync(filter);
+            return deleteresult.DeletedCount > 0;
         }
 
         public virtual Task<IEnumerable<TEntity>> GetAllAsync()
