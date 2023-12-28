@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace MongoRepositoryPattern.Domain.Model
+namespace MongoRepositoryPattern.Domain.Model.Base
 {
     public class BaseEntity
     {

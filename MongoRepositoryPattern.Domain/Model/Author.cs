@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoRepositoryPattern.Domain.Model.Base;
 
 namespace MongoRepositoryPattern.Domain.Model
 {
