@@ -1,12 +1,12 @@
 ﻿namespace MongoRepositoryPattern.Domain.Repository.Interfaces
 {
-    public interface IGenericRepository<T>
+    public interface IGenericRepository<TEntity> where TEntity : class, new()
     {
-        Task CreateAsync(T entity);
-        Task<T> GetAsync(int id);
-        Task<IEnumerable<T>> GetAllAsync();
-        Task<bool> DeleteAsync(T entity);
-        Task<bool> UpdateAsync(T entity);
+        Task CreateAsync(TEntity entity);
+        Task<TEntity> GetAsync(int id);
+        Task<IEnumerable<TEntity>> GetAllAsync();
+        Task<bool> DeleteAsync(TEntity entity);
+        Task<bool> UpdateAsync(TEntity entity);
 
     }
 }
