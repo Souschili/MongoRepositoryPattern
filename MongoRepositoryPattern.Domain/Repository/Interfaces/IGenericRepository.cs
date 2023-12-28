@@ -8,7 +8,7 @@ namespace MongoRepositoryPattern.Domain.Repository.Interfaces
         Task CreateAsync(TEntity entity);
         Task<TEntity> GetAsync(string id);
         Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<bool> DeleteAsync(string id);
+        Task<bool> DeleteAsync(FilterDefinition<TEntity> filter);
         Task<bool> UpdateAsync(FilterDefinition<TEntity> filter, UpdateDefinition<TEntity> updateFilter);
 
     }

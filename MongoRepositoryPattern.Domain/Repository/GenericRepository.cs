@@ -3,7 +3,6 @@ using MongoRepositoryPattern.Domain.Custom;
 using MongoRepositoryPattern.Domain.Model.Base;
 using MongoRepositoryPattern.Domain.Repository.Interfaces;
 using System.Reflection;
-using System.Linq;
 
 namespace MongoRepositoryPattern.Domain.Repository
 {
@@ -24,22 +23,21 @@ namespace MongoRepositoryPattern.Domain.Repository
             await _collection.InsertOneAsync(entity);
         }
 
-        public virtual async Task<bool> DeleteAsync(string id)
+        public virtual async Task<bool> DeleteAsync(FilterDefinition<TEntity> filter)
         {
-            var filter = Builders<TEntity>.Filter.Eq(x => x.Id, id);
             var deleteresult = await _collection.DeleteOneAsync(filter);
             return deleteresult.DeletedCount > 0;
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _collection.Find(_=> true).ToListAsync();
+            return await _collection.Find(_ => true).ToListAsync();
         }
 
         public virtual async Task<TEntity> GetAsync(string id)
         {
-           FilterDefinition<TEntity> filter=Builders<TEntity>.Filter.Eq(x=> x.Id, id);
-           return await _collection.Find(filter).FirstOrDefaultAsync();
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq(x => x.Id, id);
+            return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
         public virtual async Task<bool> UpdateAsync(FilterDefinition<TEntity> filter, UpdateDefinition<TEntity> updateFilter)
