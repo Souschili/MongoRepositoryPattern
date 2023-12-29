@@ -10,6 +10,7 @@ namespace MongoRepositoryPattern.Domain
     {
         public static void AddRepository(this IServiceCollection services)
         {
+            // don't work if genericrepo abstract
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
 
             services.AddScoped<IAuthorRepository, AuthorRepository>();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MongoRepositoryPattern.Domain.Model;
 using MongoRepositoryPattern.Domain.Repository.Interfaces;
 
 namespace MongoRepositoryPattern.Api.Controllers
@@ -14,19 +15,19 @@ namespace MongoRepositoryPattern.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            //var author = new Author
-            //{
-            //    Id = "1",
-            //    Name = "Test",
-            //    Description = "Test"
-            //};
-
+            var author = new Author
+            {
+                Id = "1",
+                Name = "Test",
+                Description = "Test"
+            };
+            await _repo.CreateAsync(author);
             //var collectionName = typeof(Author).GetCustomAttribute<CollectionNameAttribute>();
             //return Ok(collectionName.Name);
-            var t = _repo.Test();
-            return Ok(t);
+           
+            return Ok("Added");
         }
     }
 }
