@@ -9,8 +9,8 @@ namespace MongoRepositoryPattern.Api.Controllers
     public class HomeController : ControllerBase
     {
         private readonly IAuthorRepository _repo;
-        public HomeController(IAuthorRepository repository) 
-        { 
+        public HomeController(IAuthorRepository repository)
+        {
             this._repo = repository;
         }
 
@@ -26,7 +26,7 @@ namespace MongoRepositoryPattern.Api.Controllers
             await _repo.CreateAsync(author);
             //var collectionName = typeof(Author).GetCustomAttribute<CollectionNameAttribute>();
             //return Ok(collectionName.Name);
-           
+
             return Ok("Added");
         }
     }
