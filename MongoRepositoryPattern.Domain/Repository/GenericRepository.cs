@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace MongoRepositoryPattern.Domain.Repository
 {
-    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
     {
         private readonly protected IMongoCollection<TEntity> _collection;
         public GenericRepository(IMongoDatabase database)

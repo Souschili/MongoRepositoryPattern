@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 using MongoRepositoryPattern.Domain.Context;
+using MongoRepositoryPattern.Domain.Repository;
+using MongoRepositoryPattern.Domain.Repository.Interfaces;
 
 namespace MongoRepositoryPattern.Domain
 {
@@ -8,7 +10,10 @@ namespace MongoRepositoryPattern.Domain
     {
         public static void AddRepository(this IServiceCollection services)
         {
-           
+            services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+
         }
 
         public static void AddMongoDbContext(this IServiceCollection service)
