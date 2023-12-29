@@ -6,10 +6,10 @@ using System.Reflection;
 
 namespace MongoRepositoryPattern.Domain.Repository
 {
-    public abstract class GenericRepositoryM<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity, new()
     {
         private readonly protected IMongoCollection<TEntity> _collection;
-        public GenericRepositoryM(IMongoDatabase database)
+        public GenericRepository(IMongoDatabase database)
         {
             string collName = typeof(TEntity).GetCustomAttribute<CollectionNameAttribute>()!.Name;
 
