@@ -6,7 +6,11 @@ namespace MongoRepositoryPattern.Domain
 {
     public static class ConfigurationDomainServices
     {
-        
+        public static void AddRepository(this IServiceCollection services)
+        {
+           
+        }
+
         public static void AddMongoDbContext(this IServiceCollection service)
         {
             service.AddSingleton<IMongoDbContext, MongoDbContext>();
