@@ -15,7 +15,7 @@ namespace MongoRepositoryPattern.Domain.Repository
 
             if (String.IsNullOrEmpty(collName)) throw new ArgumentNullException($"Collection name unable to read {nameof(TEntity)}");
 
-            this._collection = database.GetCollection<TEntity>(nameof(TEntity));
+            this._collection = database.GetCollection<TEntity>(collName);
         }
 
         public virtual async Task CreateAsync(TEntity entity)
