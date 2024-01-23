@@ -4,7 +4,7 @@ using MongoRepositoryPattern.ServicesLayer.Services;
 
 namespace MongoRepositoryPattern.ServicesLayer
 {
-    static class ServiceLayerRegistration
+    public static class ServiceLayerRegistration
     {
         public static void RegisterServices(this IServiceCollection services)
         {
