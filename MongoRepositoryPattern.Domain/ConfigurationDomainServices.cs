@@ -27,7 +27,7 @@ namespace MongoRepositoryPattern.Domain
         static public void AddKeyedMongoDataBase(this IServiceCollection services)
         {
             //register mongoclient
-            services.AddSingleton(cfg=>{
+            services.AddSingleton<IMongoClient>(cfg=>{
                 return new MongoClient();
             });
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,6 +9,12 @@ namespace MongoRepositoryPattern.Api.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
+        private readonly IMongoClient _client;
+
+        public AuthorController(IMongoClient client)
+        {
+            _client = client;
+        }
         // GET: api/<AuthorController>
         [HttpGet]
         public IEnumerable<string> Get()
