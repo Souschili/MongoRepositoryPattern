@@ -23,7 +23,6 @@ namespace MongoRepositoryPattern.Domain
             service.AddSingleton<IMongoDbContext, MongoDbContext>();
         }
 
-
         static public void AddKeyedMongoDataBase(this IServiceCollection services)
         {
             //register mongoclient
@@ -41,10 +40,11 @@ namespace MongoRepositoryPattern.Domain
             services.AddKeyedSingleton("def1", (provider,_) =>
             {
                 var client = provider.GetService<MongoClient>() ?? throw new NullReferenceException("client is null");
-                return client.GetDatabase("default");
+                return client.GetDatabase("default1");
             });
         }
 
+        [Obsolete]
         static public void AddMongoDataBase(this IServiceCollection service)
         {
             service.AddSingleton(cfg =>
