@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace MongoRepositoryPattern.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")]  
     [ApiController]
     public class AuthorController : ControllerBase
     {
