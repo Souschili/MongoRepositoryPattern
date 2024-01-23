@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoRepositoryPattern.Api", "MongoRepositoryPattern.Api\MongoRepositoryPattern.Api.csproj", "{35AA7F59-A09C-48A3-A715-AAFD28E9C9F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoRepositoryPattern.Api", "MongoRepositoryPattern.Api\MongoRepositoryPattern.Api.csproj", "{35AA7F59-A09C-48A3-A715-AAFD28E9C9F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoRepositoryPattern.Domain", "MongoRepositoryPattern.Domain\MongoRepositoryPattern.Domain.csproj", "{94FE2F7F-6C69-4E64-88A6-F40796B0AFD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoRepositoryPattern.Domain", "MongoRepositoryPattern.Domain\MongoRepositoryPattern.Domain.csproj", "{94FE2F7F-6C69-4E64-88A6-F40796B0AFD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoRepositoryPattern.ServicesLayer", "MongoRepositoryPattern.ServicesLayer\MongoRepositoryPattern.ServicesLayer.csproj", "{04111E3F-1F38-40A5-B5B3-0D432D818DF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{94FE2F7F-6C69-4E64-88A6-F40796B0AFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94FE2F7F-6C69-4E64-88A6-F40796B0AFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94FE2F7F-6C69-4E64-88A6-F40796B0AFD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04111E3F-1F38-40A5-B5B3-0D432D818DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04111E3F-1F38-40A5-B5B3-0D432D818DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04111E3F-1F38-40A5-B5B3-0D432D818DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04111E3F-1F38-40A5-B5B3-0D432D818DF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
