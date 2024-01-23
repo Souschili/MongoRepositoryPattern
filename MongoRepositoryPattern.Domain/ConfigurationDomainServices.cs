@@ -17,12 +17,12 @@ namespace MongoRepositoryPattern.Domain
 
         }
 
-        [Obsolete]
+        [Obsolete("Use MongoDataBase services")]
         public static void AddMongoDbContext(this IServiceCollection service)
         {
             service.AddSingleton<IMongoDbContext, MongoDbContext>();
         }
-
+        [Obsolete("Still don't support in progress")]
         static public void AddKeyedMongoDataBase(this IServiceCollection services)
         {
             //register mongoclient
@@ -44,7 +44,7 @@ namespace MongoRepositoryPattern.Domain
             });
         }
 
-        [Obsolete]
+        
         static public void AddMongoDataBase(this IServiceCollection service)
         {
             service.AddSingleton(cfg =>
