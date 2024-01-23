@@ -17,6 +17,7 @@ namespace MongoRepositoryPattern.Domain
 
         }
 
+        [Obsolete]
         public static void AddMongoDbContext(this IServiceCollection service)
         {
             service.AddSingleton<IMongoDbContext, MongoDbContext>();
