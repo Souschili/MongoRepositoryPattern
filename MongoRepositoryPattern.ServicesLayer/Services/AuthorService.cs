@@ -3,7 +3,7 @@ using MongoRepositoryPattern.ServicesLayer.Contracts;
 
 namespace MongoRepositoryPattern.ServicesLayer.Services
 {
-    internal class AuthorService : IAuthorService
+    public class AuthorService : IAuthorService
     {
         public Task AddAuthorAsync(Author author)
         {
