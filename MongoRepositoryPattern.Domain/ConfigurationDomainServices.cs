@@ -38,7 +38,7 @@ namespace MongoRepositoryPattern.Domain
                 return client.GetDatabase("default");
             });
 
-            services.AddKeyedSingleton("def1", (provider, obj) =>
+            services.AddKeyedSingleton("def1", (provider,_) =>
             {
                 var client = provider.GetService<MongoClient>() ?? throw new NullReferenceException("client is null");
                 return client.GetDatabase("default");
