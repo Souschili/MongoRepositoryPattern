@@ -1,4 +1,5 @@
 
+
 using MongoRepositoryPattern.Domain;
 
 namespace MongoRepositoryPattern.Api
@@ -10,8 +11,7 @@ namespace MongoRepositoryPattern.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-          
-            builder.Services.AddMongoDataBase(); 
+            builder.Services.AddMongoDataBase();
             builder.Services.AddRepository();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

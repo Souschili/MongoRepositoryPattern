@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MongoRepositoryPattern.Domain\MongoRepositoryPattern.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
