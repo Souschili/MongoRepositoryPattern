@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using MongoRepositoryPattern.ServicesLayer.Contracts;
+using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,7 +22,9 @@ namespace MongoRepositoryPattern.Api.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var result= new string[] { "value1", "value2" };
+            Log.Information("Get default array => {@array}",result);
+            return result;
         }
 
         // GET api/<AuthorController>/5
