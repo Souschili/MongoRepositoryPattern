@@ -12,10 +12,12 @@ namespace MongoRepositoryPattern.Api.Controllers
     public class AuthorController : ControllerBase
     {
         private readonly IAuthorService _authorService;
+       
 
         public AuthorController(IAuthorService authorService)
         {
             _authorService = authorService;
+            
         }
 
         // GET: api/<AuthorController>
@@ -23,7 +25,8 @@ namespace MongoRepositoryPattern.Api.Controllers
         public IEnumerable<string> Get()
         {
             var result= new string[] { "value1", "value2" };
-            Log.Information("Get default array => {@array}",result);
+            Log.Information("Salam");
+            Log.Debug("Get value => {@result}", result);
             return result;
         }
 
