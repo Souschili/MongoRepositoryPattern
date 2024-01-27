@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using MongoRepositoryPattern.ServicesLayer.Contracts;
+using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,17 +12,22 @@ namespace MongoRepositoryPattern.Api.Controllers
     public class AuthorController : ControllerBase
     {
         private readonly IAuthorService _authorService;
+       
 
         public AuthorController(IAuthorService authorService)
         {
             _authorService = authorService;
+            
         }
 
         // GET: api/<AuthorController>
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var result= new string[] { "value1", "value2" };
+            Log.Information("Salam");
+            Log.Debug("Get value => {@result}", result);
+            return result;
         }
 
         // GET api/<AuthorController>/5
