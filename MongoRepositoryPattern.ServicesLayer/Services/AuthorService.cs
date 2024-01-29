@@ -21,8 +21,8 @@ namespace MongoRepositoryPattern.ServicesLayer.Services
         public async Task DeleteAuthorAsync(string id)
         {
            var result= await _authorRepo.DeleteByIdAsync(id);
-            if (!result) 
-                throw new ArgumentException($"Unable to delete entity with id{id}");
+            if (!result)
+                throw new ArgumentException($"Unable to delete entity with id -> {id}");
         }
     }
 }
