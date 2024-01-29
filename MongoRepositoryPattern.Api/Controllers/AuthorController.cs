@@ -33,9 +33,17 @@ namespace MongoRepositoryPattern.Api.Controllers
 
         // GET api/<AuthorController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
-            return "value";
+            try
+            {
+                var author=await _authorService.GetByIdAsync(id);
+                return Ok(author);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // POST api/<AuthorController>
