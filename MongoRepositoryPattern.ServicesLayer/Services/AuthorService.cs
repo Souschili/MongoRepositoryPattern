@@ -13,9 +13,9 @@ namespace MongoRepositoryPattern.ServicesLayer.Services
             _authorRepo = authorRepo;
         }
 
-        public Task AddAuthorAsync(Author author)
+        public async Task AddAuthorAsync(Author author)
         {
-            throw new NotImplementedException();
+            await _authorRepo.CreateAsync(author);
         }
     }
 }

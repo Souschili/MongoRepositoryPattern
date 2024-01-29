@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using MongoRepositoryPattern.Domain.Model;
 using MongoRepositoryPattern.ServicesLayer.Contracts;
 using Serilog;
 
@@ -39,8 +40,17 @@ namespace MongoRepositoryPattern.Api.Controllers
 
         // POST api/<AuthorController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] Author author)
         {
+            try
+            {
+                await _authorService.AddAuthorAsync(author);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT api/<AuthorController>/5
