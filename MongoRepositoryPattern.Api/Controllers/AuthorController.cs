@@ -23,12 +23,18 @@ namespace MongoRepositoryPattern.Api.Controllers
 
         // GET: api/<AuthorController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<IEnumerable<Author>>> Get()
         {
-            var result= new string[] { "value1", "value2" };
-            Log.Information("Salam");
-            Log.Debug("Get value => {@result}", result);
-            return result;
+            try
+            {
+                var authors=await _authorService.GetAllAsync();
+                return Ok(authors);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+                
+            }
         }
 
         // GET api/<AuthorController>/5
