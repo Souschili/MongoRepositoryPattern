@@ -4,6 +4,6 @@ namespace MongoRepositoryPattern.Domain.Repository.Interfaces
 {
     public interface IAuthorRepository:IGenericRepository<Author>
     {
-        string Test();
+        Task<bool> DeleteByIdAsync(string id);
     }
 }

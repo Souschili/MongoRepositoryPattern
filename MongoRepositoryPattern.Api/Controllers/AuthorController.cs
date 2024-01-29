@@ -61,8 +61,15 @@ namespace MongoRepositoryPattern.Api.Controllers
 
         // DELETE api/<AuthorController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(string id)
         {
+            try
+            {
+                await _authorService.DeleteAuthorAsync(id);
+            }catch (Exception ex)
+            {
+                BadRequest(ex.Message);
+            }
         }
     }
 }
