@@ -21,8 +21,8 @@ namespace MongoRepositoryPattern.Api.Controllers
         }
 
         //GET: api/<AuthorController>/param,value
-        [HttpGet]
-        public async Task<IActionResult> GetByParam(string paramName,object paramValue)
+        [HttpGet("GetByParam")]
+        public async Task<IActionResult> GetByParam([FromQuery]string paramName,string paramValue)
         {
             try
             {

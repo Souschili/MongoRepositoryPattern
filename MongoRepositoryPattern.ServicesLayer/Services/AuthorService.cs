@@ -39,7 +39,7 @@ namespace MongoRepositoryPattern.ServicesLayer.Services
             return author;
         }
 
-        public async Task<List<Author>?> GetByParamNameAsync(string paramName, object value)
+        public async Task<List<Author>?> GetByParamNameAsync(string paramName, string value)
         {
             var authors = await _authorRepo.GetByParamNameAsync(paramName, value);
             return authors;

@@ -25,7 +25,7 @@ namespace MongoRepositoryPattern.Domain.Repository
         /// <param name="paramname">Param name</param>
         /// <param name="value">Value of param</param>
         /// <returns>List<Authors> as result or null</returns>
-        public async Task<List<Author>?> GetByParamNameAsync(string paramname, object value)
+        public async Task<List<Author>?> GetByParamNameAsync(string paramname, string value)
         {
             FilterDefinition<Author> filter = Builders<Author>.Filter.Eq(paramname,value);
             var result=await _collection.Find(filter).ToListAsync();
