@@ -68,9 +68,18 @@ namespace MongoRepositoryPattern.Api.Controllers
         }
 
         // PUT api/<AuthorController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody]Author author)
         {
+            try
+            {
+                await _authorService.UpdateAuthorAsync(author);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<AuthorController>/5

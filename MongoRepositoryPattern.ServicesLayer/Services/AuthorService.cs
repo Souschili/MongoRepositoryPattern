@@ -1,4 +1,5 @@
-﻿using MongoRepositoryPattern.Domain.Model;
+﻿using MongoDB.Driver;
+using MongoRepositoryPattern.Domain.Model;
 using MongoRepositoryPattern.Domain.Repository.Interfaces;
 using MongoRepositoryPattern.ServicesLayer.Contracts;
 
@@ -36,6 +37,16 @@ namespace MongoRepositoryPattern.ServicesLayer.Services
             if (author == null) 
                 throw new ArgumentException($"Author with id {id} Not Found");
             return author;
+        }
+
+        public async Task UpdateAuthorAsync(Author author)
+        {
+            FilterDefinition<Author> filter=Builders<Author>.Filter.Eq(x=> x.Id, author.Id);
+            UpdateDefinition<Author> updFilter = Builders<Author>.Update.
+                Set(x => x.FirstName, author.FirstName)
+                .Set(x => x.LastName, author.LastName);
+            var result=await _authorRepo.UpdateAsync(filter,updFilter);
+            if (!result) throw new ArgumentException($"Unable to update document with Id - > {author.Id}");
         }
     }
 }

@@ -7,6 +7,7 @@ namespace MongoRepositoryPattern.ServicesLayer.Contracts
         Task<IEnumerable<Author>> GetAllAsync ();
         Task<Author> GetByIdAsync(string id);
         Task AddAuthorAsync(Author author);
+        Task UpdateAuthorAsync(Author author);
         Task DeleteAuthorAsync(string id);
 
     }
