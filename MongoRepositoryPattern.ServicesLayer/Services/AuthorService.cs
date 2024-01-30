@@ -39,6 +39,12 @@ namespace MongoRepositoryPattern.ServicesLayer.Services
             return author;
         }
 
+        public async Task<List<Author>?> GetByParamNameAsync(string paramName, object value)
+        {
+            var authors = await _authorRepo.GetByParamNameAsync(paramName, value);
+            return authors;
+        }
+
         public async Task UpdateAuthorAsync(Author author)
         {
             FilterDefinition<Author> filter=Builders<Author>.Filter.Eq(x=> x.Id, author.Id);

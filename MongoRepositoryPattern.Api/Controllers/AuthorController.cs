@@ -13,12 +13,27 @@ namespace MongoRepositoryPattern.Api.Controllers
     public class AuthorController : ControllerBase
     {
         private readonly IAuthorService _authorService;
-       
 
         public AuthorController(IAuthorService authorService)
         {
             _authorService = authorService;
             
+        }
+
+        //GET: api/<AuthorController>/param,value
+        [HttpGet]
+        public async Task<IActionResult> GetByParam(string paramName,object paramValue)
+        {
+            try
+            {
+                var result=await _authorService.GetByParamNameAsync(paramName, paramValue);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET: api/<AuthorController>
@@ -32,7 +47,7 @@ namespace MongoRepositoryPattern.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
                 
             }
         }

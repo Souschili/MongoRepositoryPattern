@@ -9,6 +9,7 @@ namespace MongoRepositoryPattern.ServicesLayer.Contracts
         Task AddAuthorAsync(Author author);
         Task UpdateAuthorAsync(Author author);
         Task DeleteAuthorAsync(string id);
+        Task<List<Author>?> GetByParamNameAsync(string paramName,object value);
 
     }
 }
