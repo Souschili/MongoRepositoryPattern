@@ -6,7 +6,7 @@ namespace MongoRepositoryPattern.Domain.Model.Base
     public class BaseEntity
     {
         [BsonId]
-        [BsonRepresentation(BsonType.String)]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }=string.Empty;
     }
 }
